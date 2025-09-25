@@ -11,13 +11,17 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Playerhider extends JavaPlugin {
 
-    public SelectorItem selectorItem = new SelectorItem();
-
+    DatabaseManager databaseManager = new DatabaseManager(this);
+    
     @Override
     public void onEnable() {
-        getComponentLogger().info(Component.text("Playerhider loaded!").color(NamedTextColor.GREEN));
-
+        saveDefaultConfig();
+        
+        databaseManager.connect();
+        
         SelectorItem.init(this);
+
+        getComponentLogger().info(Component.text("Playerhider loaded!").color(NamedTextColor.GREEN));
 
         PluginManager pm = getServer().getPluginManager();
 

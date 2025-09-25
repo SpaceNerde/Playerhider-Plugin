@@ -1,0 +1,5 @@
+db:
+  password: password
+  username: username
+  port: 3306
+  database: database_name

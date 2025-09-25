@@ -1,5 +1,6 @@
-de/spacenerd/playerhider/listeners/PlayerJoin.class
 de/spacenerd/playerhider/Playerhider.class
 de/spacenerd/playerhider/listeners/PlayerInteractPlayerhider.class
 de/spacenerd/playerhider/utils/SelectorItem.class
+de/spacenerd/playerhider/DatabaseManager.class
+de/spacenerd/playerhider/listeners/PlayerJoin.class
 de/spacenerd/playerhider/utils/SelectorItem$Mode.class
