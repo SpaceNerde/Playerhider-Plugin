@@ -28,12 +28,11 @@ public class DatabaseManager {
         FileConfiguration file_config = plugin.getConfig();
 
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/" + file_config.getString("db.database")); // Address of your running MySQL database
-        config.setUsername(file_config.getString("db.username")); // Username
-        config.setPassword(file_config.getString("db.password")); // Password
-        config.setMaximumPoolSize(10); // Pool size defaults to 10
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/" + file_config.getString("db.database"));
+        config.setUsername(file_config.getString("db.username"));
+        config.setPassword(file_config.getString("db.password"));
+        config.setMaximumPoolSize(10); 
 
-        config.addDataSourceProperty("", ""); // MISC settings to add
         this.dataSource = new HikariDataSource(config);
     }
 
