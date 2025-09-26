@@ -1,5 +1,7 @@
 package de.spacenerd.playerhider;
 
+import java.util.UUID;
+
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,7 +19,7 @@ public class Playerhider extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         
-        databaseManager.connect();
+        databaseManager.init();
         
         SelectorItem.init(this);
 
@@ -27,5 +29,10 @@ public class Playerhider extends JavaPlugin {
 
         pm.registerEvents(new PlayerJoin(this), this);
         pm.registerEvents(new PlayerInteractPlayerhider(this), this);
+    }
+
+    @Override
+    public void onDisable() {
+        databaseManager.close();
     }
 }
