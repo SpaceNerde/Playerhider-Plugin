@@ -12,7 +12,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Playerhider extends JavaPlugin {
-
     DatabaseManager databaseManager = new DatabaseManager(this);
     
     @Override
