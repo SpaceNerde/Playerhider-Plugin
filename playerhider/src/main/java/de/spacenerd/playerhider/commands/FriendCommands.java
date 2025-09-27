@@ -15,11 +15,9 @@ import io.papermc.paper.command.brigadier.Commands;
 public class FriendCommands {
     private static Playerhider plugin;
 
-    public FriendCommands(Playerhider plugin) {
+    public static LiteralArgumentBuilder<CommandSourceStack> createCommand(Playerhider plugin) {
         FriendCommands.plugin = plugin;
-    }
 
-    public static LiteralArgumentBuilder<CommandSourceStack> createCommand() {
         return Commands.literal("friend")
             .then(Commands.literal("add").then(Commands.argument("player", StringArgumentType.string()).executes(FriendCommands::addPlayer)))
             .then(Commands.literal("remove").then(Commands.argument("player", StringArgumentType.string()).executes(FriendCommands::removePlayer)));

@@ -34,7 +34,7 @@ public class Playerhider extends JavaPlugin {
         pm.registerEvents(new PlayerInteractPlayerhider(this), this);
 
         this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
-            commands.registrar().register(FriendCommands.createCommand().build());
+            commands.registrar().register(FriendCommands.createCommand(this).build());
         });
     }
 

@@ -48,14 +48,12 @@ public class DatabaseManager {
             connection.prepareStatement(
                 """
                 CREATE TABLE IF NOT EXISTS friends (
-                    player_uuid         char(36) NOT NULL,
-                    friend_uuid         char(36) NOT NULL,        
+                    player_uuid         UUID(36) NOT NULL,
+                    friend_uuid         UUID(36) NOT NULL,        
                     PRIMARY KEY (player_uuid, friend_uuid)
                 );
                 """
             ).executeUpdate();
-
-            connection.close();
 
         } catch (Exception e) {
             plugin.getLogger().severe("Database error: " + e.getMessage());
@@ -79,11 +77,7 @@ public class DatabaseManager {
             ResultSet result = statement.executeQuery();
             boolean hasPlayer = result.next();
 
-            connection.close();
-            statement.close();
-
             return hasPlayer;
-            
         } catch (Exception e) {
             plugin.getLogger().severe("Database error: " + e.getMessage());
 
@@ -115,11 +109,7 @@ public class DatabaseManager {
                 friends.add(friend);
             }
 
-            connection.close();
-            statement.close();
-
             return friends;
-
         } catch (Exception e) {
             plugin.getLogger().severe("Database error: " + e.getMessage());
 
@@ -141,10 +131,6 @@ public class DatabaseManager {
             statement.setString(2, friend_uuid);
 
             statement.executeUpdate();
-
-            connection.close();
-            statement.close();
-
         } catch (Exception e) {
             plugin.getLogger().severe("Database error: " + e.getMessage());
         }
@@ -165,10 +151,6 @@ public class DatabaseManager {
             statement.setString(2, friend_uuid);
             
             statement.executeUpdate();
-
-            connection.close();
-            statement.close();
-
         } catch (Exception e) {
             plugin.getLogger().severe("Database error: " + e.getMessage());
         }

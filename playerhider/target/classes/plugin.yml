@@ -6,3 +6,7 @@ author: Space Nerd
 website: https://spaceblog.medi.li
 api-version: '1.21.4'
 
+commands:
+  friend:
+    usage: "/friend <add/remove> <player name>"
+    description: "command to add or remove friends"
