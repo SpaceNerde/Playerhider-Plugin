@@ -7,3 +7,4 @@ de/spacenerd/playerhider/DatabaseManager.class
 de/spacenerd/playerhider/listeners/PlayerJoin.class
 de/spacenerd/playerhider/utils/SelectorItem$Mode.class
 de/spacenerd/playerhider/commands/FriendCommands.class
+de/spacenerd/playerhider/utils/HidePlayerHelper$1.class

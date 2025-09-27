@@ -8,13 +8,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import de.spacenerd.playerhider.DatabaseManager;
+import de.spacenerd.playerhider.Playerhider;
+import de.spacenerd.playerhider.utils.SelectorItem.Mode;
 
 public class HidePlayerHelper {
     // list of Players currently on the Server that are hidding all Players
-    private List<Player> hiddingAll = new ArrayList<>();
 
-    public void hideFriends(Plugin plugin, Player player, DatabaseManager databaseManager) {
-        reset(plugin, player);
+    public static void hide(Plugin plugin, Player player, DatabaseManager databaseManager, List<Player> player_list, Mode mode) {
+        switch (mode) {
+            case ALL -> hideAll(plugin, player, player_list);
+            case NONE -> hideNone(plugin, player, player_list);
+            case VIPS -> hideVips(plugin, player, databaseManager, player_list);
+            case FRIENDS -> hideFriends(plugin, player, databaseManager, player_list);
+        }
+    } 
+
+    public static void hideFriends(Plugin plugin, Player player, DatabaseManager databaseManager, List<Player> player_list) {
+        reset(plugin, player, player_list);
 
         List<Player> friends = new ArrayList<>();
         
@@ -25,30 +35,30 @@ public class HidePlayerHelper {
         }
     }
 
-    public void hideAll(Plugin plugin, Player player) {
-        reset(plugin, player);
+    public static void hideAll(Plugin plugin, Player player, List<Player> player_list) {
+        reset(plugin, player, player_list);
 
-        hiddingAll.add(player);
+        player_list.add(player);
 
         for (Player p : Bukkit.getOnlinePlayers()) {
             player.hidePlayer(plugin, p);
         }
     }
 
-    public void hideVips(Plugin plugin, Player player, DatabaseManager databaseManager) {
-        reset(plugin, player);
+    public static void hideVips(Plugin plugin, Player player, DatabaseManager databaseManager, List<Player> player_list) {
+        reset(plugin, player, player_list);
 
-        hideFriends(plugin, player, databaseManager);
+        hideFriends(plugin, player, databaseManager, player_list);
 
         // TODO: Add Luckperms to hide all the players with Staff/Media rank 
     }
 
-    public void hideNone(Plugin plugin, Player player) {
-        reset(plugin, player);
+    public static void hideNone(Plugin plugin, Player player, List<Player> player_list) {
+        reset(plugin, player, player_list);
     }
 
-    public void reset(Plugin plugin, Player player) {
-        hiddingAll.remove(player);
+    public static void reset(Plugin plugin, Player player, List<Player> player_list) {
+        player_list.remove(player);
 
         for (Player p : Bukkit.getOnlinePlayers()) {
             player.showPlayer(plugin, p);

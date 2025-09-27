@@ -1,5 +1,9 @@
 package de.spacenerd.playerhider;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,7 +19,8 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Playerhider extends JavaPlugin {
     private DatabaseManager databaseManager = new DatabaseManager(this);
-    private HidePlayerHelper hidePlayerHelper = new HidePlayerHelper();
+
+    private List<Player> playersHiddingAll = new ArrayList<>();
     
     @Override
     public void onEnable() {
@@ -47,7 +52,7 @@ public class Playerhider extends JavaPlugin {
         return databaseManager;
     }
 
-    public HidePlayerHelper getHelper() {
-        return hidePlayerHelper;
+    public List<Player> getPlayersHiddingAll() {
+        return playersHiddingAll;
     }
 }

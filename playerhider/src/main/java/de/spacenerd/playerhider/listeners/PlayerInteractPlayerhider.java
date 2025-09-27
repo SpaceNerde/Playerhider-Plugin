@@ -11,6 +11,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
 import de.spacenerd.playerhider.Playerhider;
+import de.spacenerd.playerhider.utils.HidePlayerHelper;
 import de.spacenerd.playerhider.utils.SelectorItem;
 
 public class PlayerInteractPlayerhider implements Listener {
@@ -36,5 +37,13 @@ public class PlayerInteractPlayerhider implements Listener {
         Bukkit.getScheduler().runTaskLater(plugin, ()  -> {
             player.getInventory().setItemInMainHand(SelectorItem.progress(item));
         }, 1);
+        
+        HidePlayerHelper.hide(
+            plugin, 
+            player, 
+            plugin.getDatabaseManager(), 
+            plugin.getPlayersHiddingAll(), 
+            SelectorItem.getMode(item)
+        );
     }
 }

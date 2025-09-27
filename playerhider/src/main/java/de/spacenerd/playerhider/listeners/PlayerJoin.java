@@ -21,5 +21,9 @@ public class PlayerJoin implements Listener {
         Player p = e.getPlayer();
 
         p.getInventory().setItem(0, SelectorItem.buildItem(Mode.ALL));
+
+        for (Player player : plugin.getPlayersHiddingAll()) {
+            player.hidePlayer(plugin, p);
+        }
     }
 }
