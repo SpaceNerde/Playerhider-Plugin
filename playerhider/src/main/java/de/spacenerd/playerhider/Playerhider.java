@@ -3,8 +3,10 @@ package de.spacenerd.playerhider;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.spacenerd.playerhider.commands.FriendCommands;
@@ -16,9 +18,11 @@ import de.spacenerd.playerhider.utils.SelectorItem;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.luckperms.api.LuckPerms;
 
 public class Playerhider extends JavaPlugin {
     private DatabaseManager databaseManager = new DatabaseManager(this);
+    private RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
 
     private List<Player> playersHiddingAll = new ArrayList<>();
     
@@ -27,7 +31,6 @@ public class Playerhider extends JavaPlugin {
         saveDefaultConfig();
         
         databaseManager.init();
-        
         SelectorItem.init(this);
 
         getComponentLogger().info(Component.text("Playerhider loaded!").color(NamedTextColor.GREEN));
@@ -54,5 +57,9 @@ public class Playerhider extends JavaPlugin {
 
     public List<Player> getPlayersHiddingAll() {
         return playersHiddingAll;
+    }
+
+    public RegisteredServiceProvider<LuckPerms> getProvider() {
+        return provider;
     }
 }

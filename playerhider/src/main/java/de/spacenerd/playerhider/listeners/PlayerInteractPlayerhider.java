@@ -41,8 +41,6 @@ public class PlayerInteractPlayerhider implements Listener {
         HidePlayerHelper.hide(
             plugin, 
             player, 
-            plugin.getDatabaseManager(), 
-            plugin.getPlayersHiddingAll(), 
             SelectorItem.getMode(item)
         );
     }

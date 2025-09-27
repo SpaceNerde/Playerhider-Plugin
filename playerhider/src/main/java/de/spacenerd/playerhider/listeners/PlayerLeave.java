@@ -19,6 +19,6 @@ public class PlayerLeave implements Listener {
     public void onLeave(PlayerQuitEvent e) {
         Player p = e.getPlayer();
 
-        HidePlayerHelper.reset(plugin, p, plugin.getPlayersHiddingAll());
+        HidePlayerHelper.reset(plugin, p);
     }
 }
