@@ -3,9 +3,11 @@ A Plugin to hide other players from player on Paper Servers running on 1.21.4
 
 Usage
 --------
-Add all staff and media ranks to the vip group in luckperms
-Put the Luckperms jar into the plugins folder
-Connect to a database either mysql or mariadb
+Add all staff and media ranks to the vip group in luckperms.
+Put the Luckperms jar into the plugins folder.
+Connect to a database either mysql or mariadb.
+
+See the Wiki for additional information.
 
 Requirements
 --------
