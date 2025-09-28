@@ -2,9 +2,9 @@ de/spacenerd/playerhider/listeners/PlayerLeave.class
 de/spacenerd/playerhider/Playerhider.class
 de/spacenerd/playerhider/listeners/PlayerInteractPlayerhider.class
 de/spacenerd/playerhider/utils/SelectorItem.class
-de/spacenerd/playerhider/utils/HidePlayerHelper.class
 de/spacenerd/playerhider/DatabaseManager.class
 de/spacenerd/playerhider/listeners/PlayerJoin.class
+de/spacenerd/playerhider/utils/HidePlayerHelper.class
 de/spacenerd/playerhider/utils/SelectorItem$Mode.class
-de/spacenerd/playerhider/commands/FriendCommands.class
 de/spacenerd/playerhider/utils/HidePlayerHelper$1.class
+de/spacenerd/playerhider/commands/FriendCommands.class

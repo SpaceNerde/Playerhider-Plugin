@@ -9,6 +9,7 @@ import com.mojang.brigadier.context.CommandContext;
 
 import de.spacenerd.playerhider.DatabaseManager;
 import de.spacenerd.playerhider.Playerhider;
+import de.spacenerd.playerhider.common.Messages.Error;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 
@@ -29,6 +30,10 @@ public class FriendCommands {
 
         Player friend = plugin.getServer().getPlayer(player_name);
 
+        if (friend == null) {
+            player.sendMessage(plugin.getMessageManager().getMessage(Error.NO_PLAYER_FOUND));
+        }
+
         DatabaseManager databaseManager = plugin.getDatabaseManager();
 
         databaseManager.addFriends(player.getUniqueId().toString(), friend.getUniqueId().toString());
@@ -41,6 +46,10 @@ public class FriendCommands {
         Player player = (Player) ctx.getSource().getSender();
 
         Player friend = plugin.getServer().getPlayer(player_name);
+
+        if (friend == null) {
+            player.sendMessage(plugin.getMessageManager().getMessage(Error.NO_PLAYER_FOUND));
+        }
 
         DatabaseManager databaseManager = plugin.getDatabaseManager();
 

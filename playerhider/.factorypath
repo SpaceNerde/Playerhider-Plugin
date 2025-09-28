@@ -48,4 +48,5 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/net/kyori/adventure-text-serializer-plain/4.20.0/adventure-text-serializer-plain-4.20.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/net/kyori/adventure-text-logger-slf4j/4.20.0/adventure-text-logger-slf4j-4.20.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/net/luckperms/api/5.5/api-5.5.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

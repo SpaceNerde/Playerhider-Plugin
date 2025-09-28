@@ -13,7 +13,7 @@ import de.spacenerd.playerhider.commands.FriendCommands;
 import de.spacenerd.playerhider.listeners.PlayerInteractPlayerhider;
 import de.spacenerd.playerhider.listeners.PlayerJoin;
 import de.spacenerd.playerhider.listeners.PlayerLeave;
-import de.spacenerd.playerhider.utils.HidePlayerHelper;
+import de.spacenerd.playerhider.utils.MessageManager;
 import de.spacenerd.playerhider.utils.SelectorItem;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.kyori.adventure.text.Component;
@@ -22,6 +22,8 @@ import net.luckperms.api.LuckPerms;
 
 public class Playerhider extends JavaPlugin {
     private DatabaseManager databaseManager = new DatabaseManager(this);
+    private MessageManager messageManager = new MessageManager(this);
+
     private RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
 
     private List<Player> playersHiddingAll = new ArrayList<>();
@@ -53,6 +55,10 @@ public class Playerhider extends JavaPlugin {
 
     public DatabaseManager getDatabaseManager() {
         return databaseManager;
+    }
+
+    public MessageManager getMessageManager() {
+        return messageManager;
     }
 
     public List<Player> getPlayersHiddingAll() {

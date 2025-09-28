@@ -3,3 +3,11 @@ db:
   username: username
   port: 3306
   database: database_name
+
+
+# Documentation on how to format your Messages on:
+# https://docs.advntr.dev/minimessage/format.html
+messages:
+  no-player-found: "<red>Player does not exsist or is not on the Server!</red>"
+  friend-added: "<green>You added a new friend</green>"
+  selector: "Hidding: <mode>"
