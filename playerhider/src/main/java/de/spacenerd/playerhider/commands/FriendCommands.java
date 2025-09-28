@@ -1,11 +1,18 @@
 package de.spacenerd.playerhider.commands;
 
+import java.util.Locale;
+import java.util.concurrent.CompletableFuture;
+
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.permissions.ServerOperator;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.suggestion.Suggestions;
+import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 
 import de.spacenerd.playerhider.DatabaseManager;
 import de.spacenerd.playerhider.Playerhider;
@@ -21,8 +28,12 @@ public class FriendCommands {
         FriendCommands.plugin = plugin;
 
         return Commands.literal("friend")
-            .then(Commands.literal("add").then(Commands.argument("player", StringArgumentType.string()).executes(FriendCommands::addPlayer)))
-            .then(Commands.literal("remove").then(Commands.argument("player", StringArgumentType.string()).executes(FriendCommands::removePlayer)));
+            .then(Commands.literal("add").then(Commands.argument("player", StringArgumentType.string())
+                .suggests(FriendCommands::getPlayerSuggestions)
+                .executes(FriendCommands::addPlayer)))
+            .then(Commands.literal("remove").then(Commands.argument("player", StringArgumentType.string())
+                .suggests(FriendCommands::getPlayerSuggestions)
+                .executes(FriendCommands::removePlayer)));
     }
 
     private static int addPlayer(CommandContext<CommandSourceStack> ctx) {
@@ -65,5 +76,14 @@ public class FriendCommands {
         player.sendMessage(plugin.getMessageManager().getMessage(Info.FRIEND_REMOVED));
 
         return Command.SINGLE_SUCCESS;
+    }
+
+    private static CompletableFuture<Suggestions> getPlayerSuggestions(final CommandContext<CommandSourceStack> ctx, final SuggestionsBuilder builder) {
+        Bukkit.getOnlinePlayers().stream()
+            .map(Player::getName)
+            .filter(name -> name.toLowerCase(Locale.ROOT).startsWith(builder.getRemainingLowerCase()))
+            .forEach(builder::suggest);
+
+        return builder.buildFuture();
     }
 }
