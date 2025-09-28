@@ -7,9 +7,7 @@ import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
-import de.spacenerd.playerhider.DatabaseManager;
 import de.spacenerd.playerhider.Playerhider;
 import de.spacenerd.playerhider.utils.SelectorItem.Mode;
 import net.luckperms.api.LuckPerms;

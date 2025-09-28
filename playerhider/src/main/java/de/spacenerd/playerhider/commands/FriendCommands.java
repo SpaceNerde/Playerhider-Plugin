@@ -33,6 +33,8 @@ public class FriendCommands {
 
         if (friend == null) {
             player.sendMessage(plugin.getMessageManager().getMessage(Error.NO_PLAYER_FOUND));
+
+            return 0;
         }
 
         DatabaseManager databaseManager = plugin.getDatabaseManager();
@@ -52,6 +54,8 @@ public class FriendCommands {
 
         if (friend == null) {
             player.sendMessage(plugin.getMessageManager().getMessage(Error.NO_PLAYER_FOUND));
+
+            return 0;
         }
 
         DatabaseManager databaseManager = plugin.getDatabaseManager();

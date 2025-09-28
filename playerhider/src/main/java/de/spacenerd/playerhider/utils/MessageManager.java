@@ -1,7 +1,5 @@
 package de.spacenerd.playerhider.utils;
 
-import java.util.Optional;
-
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
