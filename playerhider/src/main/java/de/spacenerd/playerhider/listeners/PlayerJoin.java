@@ -20,7 +20,7 @@ public class PlayerJoin implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        p.getInventory().setItem(0, SelectorItem.buildItem(Mode.ALL));
+        p.getInventory().setItem(0, SelectorItem.buildItem(Mode.ALL, plugin.getMessageManager()));
 
         for (Player player : plugin.getPlayersHiddingAll()) {
             player.hidePlayer(plugin, p);

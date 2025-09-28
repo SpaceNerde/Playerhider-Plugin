@@ -6,6 +6,8 @@ author: Space Nerd
 website: https://spaceblog.medi.li
 api-version: '1.21.4'
 
+depend: [LuckPerms]
+
 commands:
   friend:
     usage: "/friend <add/remove> <player name>"

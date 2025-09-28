@@ -35,7 +35,7 @@ public class PlayerInteractPlayerhider implements Listener {
         e.setCancelled(true);
 
         Bukkit.getScheduler().runTaskLater(plugin, ()  -> {
-            player.getInventory().setItemInMainHand(SelectorItem.progress(item));
+            player.getInventory().setItemInMainHand(SelectorItem.progress(item, plugin.getMessageManager()));
         }, 1);
         
         HidePlayerHelper.hide(

@@ -21,6 +21,8 @@ public class HidePlayerHelper {
     // list of Players currently on the Server that are hidding all Players
 
     public static void hide(Playerhider plugin, Player player, Mode mode) {
+        reset(plugin, player);
+
         switch (mode) {
             case ALL -> hideAll(plugin, player);
             case NONE -> hideNone(plugin, player);
@@ -30,8 +32,6 @@ public class HidePlayerHelper {
     } 
 
     public static void hideFriends(Playerhider plugin, Player player) {
-        reset(plugin, player);
-
         List<Player> friends = new ArrayList<>();
         
         friends = plugin.getDatabaseManager().getFriends(player.getUniqueId().toString());
@@ -42,8 +42,6 @@ public class HidePlayerHelper {
     }
 
     public static void hideAll(Playerhider plugin, Player player) {
-        reset(plugin, player);
-
         plugin.getPlayersHiddingAll().add(player);
 
         for (Player p : Bukkit.getOnlinePlayers()) {
@@ -53,8 +51,6 @@ public class HidePlayerHelper {
 
     // hides all players that are in the Luckperms group vip, just add staff and/or media rank players to the vip group
     public static void hideVips(Playerhider plugin, Player player) {
-        reset(plugin, player);
-
         hideFriends(plugin, player);
 
         // TODO: Add Luckperms to hide all the players with Staff/Media rank 
@@ -73,9 +69,8 @@ public class HidePlayerHelper {
         });
     }
 
-    public static void hideNone(Playerhider plugin, Player player) {
-        reset(plugin, player);
-    }
+    // just here for maybe future implementations
+    public static void hideNone(Playerhider plugin, Player player) {}
 
     public static void reset(Playerhider plugin, Player player) {
         plugin.getPlayersHiddingAll().remove(player);

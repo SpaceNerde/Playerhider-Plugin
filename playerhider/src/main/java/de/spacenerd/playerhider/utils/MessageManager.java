@@ -11,6 +11,8 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
+// TODO: Fix this mess of a class
+
 public class MessageManager {
     private final Plugin plugin;
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
@@ -27,6 +29,7 @@ public class MessageManager {
         return parsed_message;
     }
 
+    // <mode>
     public Component getMessage(Message message, Mode mode) {
         String raw_message = plugin.getConfig().getString(message.getPath());
 
@@ -35,6 +38,7 @@ public class MessageManager {
         return parsed_message;
     }
 
+    // <player>
     public Component getMessage(Message message, Player player) {
         String raw_message = plugin.getConfig().getString(message.getPath());
 
@@ -43,17 +47,16 @@ public class MessageManager {
         return parsed_message;
     }
 
-
-    public Component getMessage(Message message, Player... player) {
+    // <player> <friend>
+    public Component getMessage(Message message, Player player, Player friend) {
         String raw_message = plugin.getConfig().getString(message.getPath());
 
         Component parsed_message = miniMessage.deserialize(raw_message);
 
-        
-
         return parsed_message;
     }
 
+    // <player>
     public Component getMessage(Message message, String player_name) {
         String raw_message = plugin.getConfig().getString(message.getPath());
 
@@ -62,7 +65,8 @@ public class MessageManager {
         return parsed_message;
     }
 
-    public Component getMessage(Message message, String... player_name) {
+    // <player_name> <friend_name>
+    public Component getMessage(Message message, String player_name, String friend_name) {
         String raw_message = plugin.getConfig().getString(message.getPath());
 
         Component parsed_message = miniMessage.deserialize(raw_message);

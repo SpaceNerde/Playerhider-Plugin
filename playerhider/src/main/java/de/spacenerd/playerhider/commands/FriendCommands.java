@@ -10,6 +10,7 @@ import com.mojang.brigadier.context.CommandContext;
 import de.spacenerd.playerhider.DatabaseManager;
 import de.spacenerd.playerhider.Playerhider;
 import de.spacenerd.playerhider.common.Messages.Error;
+import de.spacenerd.playerhider.common.Messages.Info;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 
@@ -38,6 +39,8 @@ public class FriendCommands {
 
         databaseManager.addFriends(player.getUniqueId().toString(), friend.getUniqueId().toString());
 
+        player.sendMessage(plugin.getMessageManager().getMessage(Info.FRIEND_ADDED));
+
         return Command.SINGLE_SUCCESS;
     }
 
@@ -54,6 +57,8 @@ public class FriendCommands {
         DatabaseManager databaseManager = plugin.getDatabaseManager();
 
         databaseManager.removeFriends(player.getUniqueId().toString(), friend.getUniqueId().toString());
+
+        player.sendMessage(plugin.getMessageManager().getMessage(Info.FRIEND_REMOVED));
 
         return Command.SINGLE_SUCCESS;
     }

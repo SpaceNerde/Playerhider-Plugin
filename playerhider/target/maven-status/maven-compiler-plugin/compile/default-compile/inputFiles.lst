@@ -1,8 +1,10 @@
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/DatabaseManager.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/Playerhider.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/commands/FriendCommands.java
+/home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/common/Messages.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/listeners/PlayerInteractPlayerhider.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/listeners/PlayerJoin.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/listeners/PlayerLeave.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/utils/HidePlayerHelper.java
+/home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/utils/MessageManager.java
 /home/space/workspace/Playerhider-Plugin/playerhider/src/main/java/de/spacenerd/playerhider/utils/SelectorItem.java

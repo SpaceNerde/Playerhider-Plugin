@@ -9,8 +9,7 @@ public class Messages {
     }
 
     public enum Error implements Message{
-        NO_PLAYER_FOUND("no-player-found"),
-        NO_CONNECTION_TO_DB("a");
+        NO_PLAYER_FOUND("no-player-found");
 
         public final String messagePath;
 
@@ -24,7 +23,8 @@ public class Messages {
     }
 
     public enum Info implements Message {
-        FRIEND_ADDED("friend-added");
+        FRIEND_ADDED("friend-added"),
+        FRIEND_REMOVED("friend-removed");
 
         public final String messagePath;
 
@@ -33,7 +33,7 @@ public class Messages {
         }
 
         public String getPath() {
-            return "messages" + this.messagePath;
+            return "messages." + this.messagePath;
         }
     }
 
@@ -47,7 +47,7 @@ public class Messages {
         }
 
         public String getPath() {
-            return "messages" + this.messagePath;
+            return "messages." + this.messagePath;
         }
     }
 }

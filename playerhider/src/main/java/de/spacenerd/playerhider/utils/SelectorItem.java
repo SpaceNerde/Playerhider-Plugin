@@ -12,6 +12,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.spacenerd.playerhider.common.Messages.Item;
 import net.kyori.adventure.text.Component;
 
 public class SelectorItem {
@@ -70,11 +71,11 @@ public class SelectorItem {
         return material;
     }
 
-    public static ItemStack buildItem(Mode mode) {
+    public static ItemStack buildItem(Mode mode, MessageManager messageManager) {
         ItemStack item = new ItemStack(getMaterial(mode));
         ItemMeta meta = item.getItemMeta();
 
-        meta.customName(Component.text("Hidding: " + mode.description));
+        meta.customName(messageManager.getMessage(Item.SELECTOR, mode));
 
         // making the item unique so that every playter has his own item
         // even tho sharing is caring :P
@@ -93,14 +94,14 @@ public class SelectorItem {
         return data.has(KEY, PersistentDataType.INTEGER);
     }
 
-    public static ItemStack progress(ItemStack item) {
+    public static ItemStack progress(ItemStack item, MessageManager messageManager) {
         if (!isSelector(item)) return item;
 
         Mode current = getMode(item);
-        return buildItem(current.next());
+        return buildItem(current.next(), messageManager);
     }
 
-    public static ItemStack create(ItemStack item) {
-        return buildItem(Mode.ALL);
+    public static ItemStack create(ItemStack item, MessageManager messageManager) {
+        return buildItem(Mode.ALL, messageManager);
     }
 }
